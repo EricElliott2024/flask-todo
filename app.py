@@ -12,10 +12,11 @@ class Todo(db.Model):
     title = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
 
+# (one of several examples of) Candidate Concept 2.3: Page Addressing
 @app.route('/')
 def index():
-    # show all todos
     todo_list = Todo.query.all()
+    # Candidate Concept 2.1: Template Rendering
     return render_template('base.html', todo_list=todo_list)
 
 @app.route("/add", methods=["POST"])
